@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="userBean"
+          class="xmlbeans.UserBean">
+        <constructor-arg value="NAME"/>
+    </bean>
+
+    <bean id="builderName" class="xmlbeans.BuilderBean"
+          factory-method="builder">
+    </bean>
+
+    <bean id="beanFactory" class="xmlbeans.BeanFactory">
+    </bean>
+
+    <bean id="factoryConstructedBean" factory-bean="beanFactory" factory-method="createBean">
+        <constructor-arg value="123"/>
+    </bean>
+
+</beans>
+
